@@ -1,0 +1,78 @@
+﻿@page "/"
+@using MauiBlazorHybridApp.Models;
+@using MauiBlazorHybridApp.Services
+@using System.Security.Claims
+@using Newtonsoft.Json
+@inject IAppService AppService;
+@inject NavigationManager NavManager;
+<h3>Login</h3>
+
+<EditForm Model="@loginModel" OnValidSubmit="Submit">
+    <DataAnnotationsValidator /> 
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="email" class="form-control" placeholder="Enter email" @bind-value="loginModel.Email" />
+        <ValidationMessage For="@(()=> loginModel.Email)" />
+    </div>
+    <div class="mt-2 form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="Password" @bind-value="loginModel.Password" />
+        <ValidationMessage For="@(()=> loginModel.Password)" /> 
+    </div>
+
+    <div class="mt-2 text-end">
+        <NavLink class="nav-link" href="registration">
+            <span>Click here to create new account?</span>
+        </NavLink>
+    </div>
+
+    <div class="text-center mt-2">
+        <button class="btn btn-primary" type="submit">
+            <span class="@_spinnerClass" role="status" aria-hidden="true"></span> 
+            SignIn
+        </button>
+    </div>
+</EditForm> 
+
+@code {
+    LoginModel loginModel = new();
+
+    private string _spinnerClass = "";
+    private async void Submit()
+    {
+        _spinnerClass = "spinner-border spinner-border-sm";
+        var response = await AppService.AuthenticateUser(loginModel);
+      
+        if (response.data != null)
+        {
+            // var Response = JsonConvert.DeserializeObject<RegistrationModel>(response.data.ToString());
+
+            // var handler = new JwtSecurityTokenHandler();
+            // var jsontoken = handler.ReadToken(tokenResponse.AccessToken) as JwtSecurityToken;
+
+            // string userID = jsontoken.Claims.FirstOrDefault(f => f.Type == JwtRegisteredClaimNames.NameId).Value;
+            // string name = jsontoken.Claims.FirstOrDefault(f => f.Type == JwtRegisteredClaimNames.Name).Value;
+
+            string email = loginModel.Email;
+
+            var userBasicDetail = new UserBasicDetail
+                {
+                    Email = response.data.email,
+                    Name = response.data.fullName,
+                    UserID = response.data.Id,
+                    jwtToken = response.data.jwtToken
+                };
+            string userBasicInfoStr = JsonConvert.SerializeObject(userBasicDetail);
+            await SecureStorage.SetAsync(nameof(Setting.UserBasicDetail), userBasicInfoStr);
+            Setting.UserBasicDetail = userBasicDetail;
+
+            NavManager.NavigateTo("/dashboard");
+        }
+        else
+        {
+            await App.Current.MainPage.DisplayAlert("Oops", "Invalid username or password", "OK");
+        }
+        _spinnerClass = "";
+        this.StateHasChanged();
+    }
+}

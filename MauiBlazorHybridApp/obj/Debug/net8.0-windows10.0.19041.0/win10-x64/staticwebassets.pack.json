@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\yansi\\Learning\\MAUI\\MauiBlazorHybridApp\\MauiBlazorHybridApp\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\MauiBlazorHybridApp.styles.css",
+      "PackagePath": "staticwebassets\\MauiBlazorHybridApp.styles.css"
+    },
+    {
+      "Id": "C:\\yansi\\Learning\\MAUI\\MauiBlazorHybridApp\\MauiBlazorHybridApp\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\yansi\\Learning\\MAUI\\MauiBlazorHybridApp\\MauiBlazorHybridApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\yansi\\Learning\\MAUI\\MauiBlazorHybridApp\\MauiBlazorHybridApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\yansi\\Learning\\MAUI\\MauiBlazorHybridApp\\MauiBlazorHybridApp\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\yansi\\Learning\\MAUI\\MauiBlazorHybridApp\\MauiBlazorHybridApp\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.MauiBlazorHybridApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.build.MauiBlazorHybridApp.props",
+      "PackagePath": "build\\MauiBlazorHybridApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildMultiTargeting.MauiBlazorHybridApp.props",
+      "PackagePath": "buildMultiTargeting\\MauiBlazorHybridApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildTransitive.MauiBlazorHybridApp.props",
+      "PackagePath": "buildTransitive\\MauiBlazorHybridApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

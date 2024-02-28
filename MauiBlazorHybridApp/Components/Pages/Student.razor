@@ -1,0 +1,42 @@
+﻿@page "/StudentData";
+@using MauiBlazorHybridApp.Models
+@using MauiBlazorHybridApp.Services
+@inject IAppService AppService;
+@inject NavigationManager NavManager;
+
+@if (Students == null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var student in Students)
+			{
+				<tr>
+					<td>@student.FirstName</td>
+					<td>@student.LastName</td>
+					<td>@student.Email</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+
+@code {
+	private List<StudentModel> Students;
+
+	protected override async Task OnInitializedAsync()
+	{
+		Students = await AppService.GetAllStudents();
+	}
+}
+

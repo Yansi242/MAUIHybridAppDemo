@@ -1,0 +1,1 @@
+C:\yansi\Learning\MAUI\MauiBlazorHybridApp\MauiBlazorHybridApp\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppPackages\MauiBlazorHybridApp_0.0.1.0_Debug_Test\MauiBlazorHybridApp_0.0.1.0_x86_Debug.msix
